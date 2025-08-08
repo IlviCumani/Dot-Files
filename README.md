@@ -135,6 +135,17 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ---
 <br/>
+
+### 📚 Resources & References
+
+- [Oh My Zsh](https://ohmyz.sh/) — Your shell’s ninja toolkit 🥷  
+- [NvChad](https://nvchad.com/) — The Neovim config with Hokage-level customization  
+- [Yazi](https://yazi-rs.github.io/) — Blazing fast terminal file manager with style  
+
+<br/>
+
+---
+<br/>
 <br/>
 
 <p align="center">
@@ -142,12 +153,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 </p>
 
 
-<br/>
-<br/>
 
-
-## 📚 Resources & References
-
-- [Oh My Zsh](https://ohmyz.sh/) — Your shell’s ninja toolkit 🥷  
-- [NvChad](https://nvchad.com/) — The Neovim config with Hokage-level customization  
-- [Yazi](https://yazi-rs.github.io/) — Blazing fast terminal file manager with style  
