@@ -6,11 +6,42 @@
 <br/>
 <br/>
 
+## 🚀 Quick Start
+
+1. **Clone the repository**:
+```bash
+git colne --depth=1 git@github.com:IlviCumani/Dot-Files.git
+```
+2. **Install brew if not already installed i will loose all my respect for you**:
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+3. **Install Mandatory Dependencies**:
+```bash
+brew install stow 
+brew install git
+brew install nvim
+brew install tmux 
+brew install yazi
+```
+4. **Create symlinks for the configs**:
+```bash
+cd Dot-Files
+stow .
+```
+---
+
+<br/><br/>
+
 ## 📺 Reference Guide
 
+<div align="center">
+   
 🎥 **Dotfiles Management YouTube Video**  
+
 [![The best way to manage your dotfiles](https://img.youtube.com/vi/y6XCebnB9gs/0.jpg)](https://www.youtube.com/watch?v=y6XCebnB9gs&t=292s)
 
+</div> 
 
 ---
 
@@ -22,12 +53,7 @@
 - 🧙 Terminal: `zsh`, `tmux`, `thefuck`, and more
 - 🎨 Neovim (NvChad): LSP, Copilot, Treesitter, Telescope, TypeScript support, and beautiful UI
 - 🔧 File Manager: [Yazi](https://github.com/sxyazi/yazi) with Catppuccin theme
-- 🍺 Package Management with `brew bundle`
 - 🪄 Stylized iTerm2: Catppuccin & TokyoNight themes
-- 🔁 Git-based dotfiles management
-- 💾 `stow` integration for modular config control
-- ⌨️ Custom keymaps across nvim, tmux, and yazi
-- 🪛 `setup.sh` ready structure (coming soon)
 
 ---
 
@@ -42,6 +68,13 @@
 - Powerlevel10k for shell theming
 - `.zshrc` and plugin setup included
 
+```bash
+# Install optional tools 
+brew install thefuck 
+brew install Zoxide
+brew install ripgrep
+brew install lazygit 
+```
 ---
 
 <br/>
@@ -54,77 +87,34 @@
 - Custom status bar, mouse mode, and prefix-highlighting
 - Vim-style keybindings
 - Integrations: tmux-resurrect support, transparent background
+- prefix key is `Ctrl-Space`
 - `prefix + r` → Reload tmux config  
 
----
-
 <br/>
-<br/>
-
-## 🗂 Yazi File Manager
-
-- Fully themed with Catppuccin Macchiato
-- Located in `.config/yazi/`
-- shortcut `y`
-
----
-
-<br/>
-<br/>
-
-## 🧪 Tools Included
-
-Below are the tools currently installed on my system, with install instructions and references:
-
-| Tool | Description | Install Command | Link |
-|------|-------------|-----------------|------|
-| **[Homebrew]** | Package manager for macOS/Linux | `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` | [brew.sh](https://brew.sh) |
-| **[The Fuck]** | Auto-fix your last console command | `brew install thefuck` | [github.com/nvbn/thefuck](https://github.com/nvbn/thefuck) |
-| **[GNU Stow]** | Symlink manager for dotfile modularity | `brew install stow` | [www.gnu.org/software/stow](https://www.gnu.org/software/stow/) |
-| **[Zoxide]** | Smarter `cd` command replacement | `brew install zoxide` | [github.com/ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide) |
-| **[ripgrep]** | Blazing fast search tool (better grep) | `brew install ripgrep` | [github.com/BurntSushi/ripgrep](https://github.com/BurntSushi/ripgrep) |
-| **[iTerm2]** | Terminal emulator for macOS | Manual download | [iterm2.com](https://iterm2.com/) |
-
----
-
-<br/>
-<br/>
-
-## 🔄 Tmux Plugin Manager (TPM)
-
-TPM helps you install and manage tmux plugins easily.
-
-### 📦 Install TPM
 
 ```bash
+# Install TPM (Tmux Plugin Manager)
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-Then reload tmux:
+<br/>
 
-```bash
-# Inside tmux
-prefix + I  # Installs plugins
-```
-
-### 📚 Plugins Used
+<div align='center'>
 
 | Plugin | Purpose |
 |--------|---------|
 | [`tmux-plugins/tmux-resurrect`](https://github.com/tmux-plugins/tmux-resurrect) | Save & restore tmux sessions |
 | [`tmux-plugins/tmux-prefix-highlight`](https://github.com/tmux-plugins/tmux-prefix-highlight) | Visual prefix key indicator in statusbar |
+| ['tmux-plugins/tmux-battery'](https://github.com/tmux-plugins/tmux-battery) | Show battery status in tmux status bar |
+| ['tmux-plugins/tmux-cpu'](https://github.com/tmux-plugins/tmux-cpu) | Show CPU usage in tmux status bar |
 
+</div>
 
 ---
 
 <br/>
 <br/>
-
-## 📜 License
-
-MIT — take and use anything you like. May your terminal be swift, your tools sharp, and your mind sharper.
-
----
 
 <p align="center">
   <strong>🌀 Aim High, Dream Big. Become the Super Hokage of the CLI 🌀</strong>
