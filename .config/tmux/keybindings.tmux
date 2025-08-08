@@ -2,7 +2,7 @@
 
 # set reload command
 unbind r
-bind r source-file ~/.tmux/tmux.conf \; display "Config reloaded!" 
+bind r source-file ~/.tmux.conf \; display "Config reloaded!" 
 
 # set leader key
 unbind C-b
@@ -18,7 +18,7 @@ bind-key l select-pane -R
 # toggle between last window
 bind b last-window
 
-bind s choose-session
+bind S choose-session
 
 # tmux resurrect bindings
 set -g @resurrect-save 'O'
