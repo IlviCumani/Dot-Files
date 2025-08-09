@@ -22,6 +22,7 @@ git clone --depth=1 git@github.com:IlviCumani/Dot-Files.git
 3. **Install Mandatory Dependencies**:
 ```bash
 brew install stow git nvim tmux yazi
+brew install --cask nikitabobko/tap/aerospace
 ```
 4. **Create symlinks for the configs**:
 ```bash
@@ -108,7 +109,7 @@ brew install --cask font-hack-nerd-font
 - Modular config in `.config/tmux/`
 - Custom status bar, mouse mode, and prefix-highlighting
 - Vim-style keybindings
-- Integrations: tmux-resurrect support, transparent background
+- Integrations: tmux-resurrect support
 - prefix key is `Ctrl-Space`
 - `prefix + r` → Reload tmux config  
 
@@ -134,6 +135,49 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 </div>
 
 ---
+
+<br/>
+
+## 🛰️Aerospace
+
+- Launches automatically on start  
+- Active window highlighted with border indicator  
+- Fullscreen toggle via `Alt + Shift + F` shortcut  
+- Apps auto-assigned to workspaces: Spotify (M), Slack (S), WhatsApp (W), Terminal (T)  
+- Mouse cursor centers on active window
+
+<br/>
+
+🔗 The [`borders`](https://github.com/FelixKratz/JankyBorders) plugin’s GitHub repository
+
+```bash
+# Install 'borders' 
+brew tap FelixKratz/formulae
+brew install borders
+```
+```toml
+# Change the active an inactive colors here
+after-startup-command = [
+    'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0'
+]   
+```
+
+<br/>
+
+🙅🏻‍♂️ I don’t personally use SketchyBar, but this setup might be helpful to keep in mind
+ For more details, see the [SketchyBar setup guide](https://felixkratz.github.io/SketchyBar/setup).
+
+```bash
+brew tap FelixKratz/formulae
+brew install sketchybar
+
+mkdir -p ~/.config/sketchybar/plugins
+cp $(brew --prefix)/share/sketchybar/examples/sketchybarrc ~/.config/sketchybar/sketchybarrc
+cp -r $(brew --prefix)/share/sketchybar/examples/plugins/ ~/.config/sketchybar/plugins/
+```
+
+
+---
 <br/>
 
 ### 📚 Resources & References
@@ -143,7 +187,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 - [Yazi](https://yazi-rs.github.io/) — Blazing fast terminal file manager with style
 - [GNU Stow](https://www.gnu.org/software/stow/) — Neatly organizes your dotfiles with smart symlinks   🎯  
 - [TPM](https://github.com/tmux-plugins/tpm) — Easily install and manage tmux plugins
-
+- [Aerospace](https://github.com/nikitabobko/AeroSpace) - Tiling Window Manager
 
 <br/>
 
