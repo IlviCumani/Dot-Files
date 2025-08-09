@@ -152,7 +152,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 <br/>
 
 <p align="center">
-  <strong>🌀 Aim High, Dream Big. Become the Super Hokage of the CLI 🌀</strong>
+   <strong>🐢 Work hard, study well, and eat and sleep plenty. That's the Turtle Hermit way to learn 🐢</strong>
 </p>
 
 
