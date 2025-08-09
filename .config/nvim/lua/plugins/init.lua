@@ -37,4 +37,5 @@ return {
   require "plugins.typescript",
   require "plugins.folding",
   require "plugins.noice",
+  require "plugins.lazygit",
 }
