@@ -140,7 +140,10 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 - [Oh My Zsh](https://ohmyz.sh/) — Your shell’s ninja toolkit 🥷  
 - [NvChad](https://nvchad.com/) — The Neovim config with Hokage-level customization  
-- [Yazi](https://yazi-rs.github.io/) — Blazing fast terminal file manager with style  
+- [Yazi](https://yazi-rs.github.io/) — Blazing fast terminal file manager with style
+- [GNU Stow](https://www.gnu.org/software/stow/) — Neatly organizes your dotfiles with smart symlinks   🎯  
+- [TPM](https://github.com/tmux-plugins/tpm) — Easily install and manage tmux plugins
+
 
 <br/>
 
