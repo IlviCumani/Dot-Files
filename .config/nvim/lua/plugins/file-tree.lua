@@ -1,26 +1,40 @@
 return {
   "nvim-tree/nvim-tree.lua",
   opts = {
-    -- view = {},
+    view = {
+    },
     renderer = {
-      highlight_opened_files = "all",
+      highlight_diagnostics = "all",
       symlink_destination = false,
       indent_markers = {
         enable = true,
       },
+      icons = {
+        git_placement = "right_align",
+        glyphs = {
+         folder = {
+            arrow_open = "",
+            arrow_closed = "",
+            default = "",
+            open = "",
+            empty = "",
+            empty_open = "",
+            symlink = "",
+            symlink_open = "",
+          },
+          git = {
+            unstaged = "",
+            untracked = "",
+          },
+        },
+      },
     },
     diagnostics = {
       enable = true,
-      show_on_dirs = true,
-      icons = {
-        hint = "󰌵",
-        info = " ",
-        warning = " ",
-        error = " ",
-      },
     },
     filters = {
       dotfiles = false,
+      git_ignored = false
     },
   },
 }

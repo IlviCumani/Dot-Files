@@ -6,33 +6,26 @@ local M = {}
 M.base46 = {
   theme = "embark",
   hl_override = {
-    LineNr = {
-      fg = "white",
-    },
-    CursorLineNr = {
-      fg = "purple",
-      bold = true,
-    },
-    Folded = {
-      bg = "base03",
-      italic = true,
-    },
-    TelescopeBorder = {
-      fg = "green",
-    },
-    TelescopePromptBorder = {
-      fg = "yellow",
-    },
-    FloatBorder = {
-      fg = "purple",
-      bg = "base02",
-    },
-    NormalFloat = {
-      bg = "base02",
-    },
-    NormalBorder = {
-      fg = "purple",
-    },
+    LineNr = { fg = "white" },
+    CursorLineNr = { fg = "purple", bold = true },
+    Folded = { bg = "base03", italic = true },
+    TelescopeBorder = { fg = "green" },
+    TelescopePromptBorder = { fg = "yellow" },
+    FloatBorder = { fg = "purple", bg = "base02" },
+    NormalFloat = { bg = "base02" },
+    NormalBorder = { fg = "purple" },
+    NvimTreeGitNew = { fg = "#9ECE6A" },
+    NvimTreeGitNewIcon = { fg = "#9ECE6A" },
+    NvimTreeGitFileNewHL = { fg = "#9ECE6A" },
+    NvimTreeGitFolderNewHL = { fg = "#9ECE6A" },
+    NvimTreeGitFileNew = { fg = "#9ECE6A" },
+    NvimTreeGitFolderNew = { fg = "#9ECE6A" },
+    NvimTreeGitDirty = { fg = "#a3cfff" },
+    NvimTreeGitDirtyIcon = { fg = "#a3cfff" },
+    NvimTreeGitFileDirtyHL = { fg = "#a3cfff" },
+    NvimTreeGitFolderDirtyHL = { fg = "#a3cfff" },
+    NvimTreeGitModified = { fg = "#a3cfff" },
+    NvimTreeGitFileDirty = { fg = "#a3cfff" },
   },
   transparency = true,
 }

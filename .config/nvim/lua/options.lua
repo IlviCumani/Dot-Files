@@ -3,7 +3,7 @@ require "nvchad.options"
 local o = vim.o
 o.cursorlineopt = "both"
 o.foldcolumn = "1"
-o.foldlevelstart = 5
+o.foldlevelstart = 99
 o.foldlevel = 5
 o.foldenable = true
 vim.opt.fillchars = {
