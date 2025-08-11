@@ -52,14 +52,13 @@ return {
             "╚",
             "║",
           },
-          winhighlight = "NormalNC:MyNormalNC",
+          winhighlight = "NormalNC:NormalFloat",
           winblend = 15,
           maxheight = 30,
         },
         mappings = {
           scrollU = "<C-u>",
           scrollD = "<C-d>",
-        
         },
       },
       close_fold_kinds_for_ft = {

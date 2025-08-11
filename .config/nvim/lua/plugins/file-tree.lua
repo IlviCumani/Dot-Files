@@ -1,8 +1,6 @@
 return {
   "nvim-tree/nvim-tree.lua",
   opts = {
-    view = {
-    },
     renderer = {
       highlight_diagnostics = "all",
       symlink_destination = false,
@@ -12,16 +10,6 @@ return {
       icons = {
         git_placement = "right_align",
         glyphs = {
-         folder = {
-            arrow_open = "",
-            arrow_closed = "",
-            default = "",
-            open = "",
-            empty = "",
-            empty_open = "",
-            symlink = "",
-            symlink_open = "",
-          },
           git = {
             unstaged = "",
             untracked = "",
@@ -34,7 +22,7 @@ return {
     },
     filters = {
       dotfiles = false,
-      git_ignored = false
+      git_ignored = false,
     },
   },
 }

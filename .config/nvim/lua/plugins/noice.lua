@@ -64,4 +64,5 @@ function M.config()
     render = "wrapped-default",
   }
 end
+
 return M
