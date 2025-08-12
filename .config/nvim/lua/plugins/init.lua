@@ -33,9 +33,13 @@ return {
     },
     ft = { "markdown" },
   },
+  { "karb94/neoscroll.nvim", event = "VeryLazy", opts = {
+    hide_cursor = true,
+  } },
   require "plugins.copilot",
   require "plugins.typescript",
   require "plugins.folding",
   require "plugins.noice",
   require "plugins.lazygit",
+  require "plugins.avante",
 }
