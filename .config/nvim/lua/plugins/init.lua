@@ -41,5 +41,4 @@ return {
   require "plugins.folding",
   require "plugins.noice",
   require "plugins.lazygit",
-  require "plugins.avante",
 }
