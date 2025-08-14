@@ -139,3 +139,4 @@ function y() {
 
 eval "$(zoxide init zsh)"
 alias cd="z"
+alias 'code ,'='code .'

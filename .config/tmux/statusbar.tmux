@@ -18,7 +18,9 @@ set -g status-left "#{prefix_highlight}#[fg=magenta,bold]#S #[fg=cyan]| "
 
 # Format for inactive and active windows
 set -g window-status-format "#[fg=green]#I#[default]:#[fg=white]#W"
-set -g window-status-current-format "#[fg=yellow]#I:#[fg=blue]#W"
+# set -g window-status-current-format " 󱎕#[fg=black bg=magenta bold]#I:#[fg=black bg=magenta]#W"
+
+set -g window-status-current-format "#[fg=magenta,bg=default]#[fg=black,bg=magenta,bold]#I:#[fg=black,bg=magenta] #W#[fg=magenta,bg=default]"
 
 # Status bar styling set to transparent
 set -g status-style "bg=default,fg=default"
