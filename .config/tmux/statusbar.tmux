@@ -14,7 +14,7 @@ set -g status-right-length 60
 # Left side: session info with icon
 set -g @prefix_highlight_fg 'cyan' # default is 'colour231'
 set -g @prefix_highlight_bg 'default'  # default is 'colour04'
-set -g status-left "#{prefix_highlight}#[fg=magenta,bold]#S #[fg=cyan]| "
+set -g status-left "#{prefix_highlight} #[fg=magenta,bold]#S #[fg=cyan]| "
 
 # Format for inactive and active windows
 set -g window-status-format "#[fg=green]#I#[default]:#[fg=white]#W"
@@ -26,4 +26,6 @@ set -g window-status-current-format "#[fg=magenta,bg=default]#[fg=black,bg=ma
 set -g status-style "bg=default,fg=default"
 
 # Right side: time, date, battery and CPU status with icons
-set -g status-right "#[fg=cyan]| #[fg=green] %H:%M #[fg=cyan]| #[fg=yellow] %d-%m #[fg=cyan]|#[fg=blue] 󱊣#{battery_percentage} #[fg=cyan]|#[fg=magenta]  #{cpu_percentage}"
+# set -g status-right " #[fg=green] %H:%M #[fg=cyan]| #[fg=yellow] %d-%m #[fg=cyan]|#[fg=blue] 󱊣#{battery_percentage} #[fg=cyan]|#[fg=magenta]  #{cpu_percentage}"
+
+set -g status-right " #[fg=green] %H:%M  #[fg=yellow] %d-%m  #[fg=blue]󱊣 #{battery_percentage}  #[fg=magenta] #{cpu_percentage}"
