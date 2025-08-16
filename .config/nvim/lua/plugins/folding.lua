@@ -31,7 +31,7 @@ return {
         curWidth = curWidth + chunkWidth
       end
 
-      table.insert(newVirtText, { suffix, "MoreMsg" })
+      table.insert(newVirtText, { suffix, "CursorLineNr" })
       return newVirtText
     end
 

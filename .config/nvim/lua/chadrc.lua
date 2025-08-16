@@ -8,7 +8,7 @@ M.base46 = {
   hl_override = {
     LineNr = { fg = "base04" },
     CursorLineNr = { fg = "base0C", bold = true },
-    Folded = { bg = "base0B", italic = true },
+    Folded = { bg = "base07", italic = true },
     ["@string"] = { fg = "base0C" },
     ["@punctuation.bracket"] = { fg = "base08" },
     ["@punctuation.delimiter"] = { fg = "base0E" },
