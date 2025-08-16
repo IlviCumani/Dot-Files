@@ -20,14 +20,15 @@ set -g @leaf          "#95b1ac"
 set -g @highlight_low "#21202e"
 set -g @highlight_med "#403d52"
 set -g @highlight_high "#524f67"
+set -g @white "#ffffff"
 set -g @none          "default"
 
 # ======================
 # Prefix highlight colors
 # ======================
-set -g @prefix_highlight_copy_mode_attr "fg=#{@text},bg=#{@pine},bold"
-set -g @prefix_highlight_sync_mode_atte "fg=#{@text},bg=#{@pine},bold"
-set -g @prefix_highlight_empty_attr "fg=#{@text},bg=#{@pine},bold"
+set -g @prefix_highlight_copy_mode_attr "fg=#{@white},bg=#{@pine},bold"
+set -g @prefix_highlight_sync_mode_atte "fg=#{@white},bg=#{@pine},bold"
+set -g @prefix_highlight_empty_attr "fg=#{@white},bg=#{@pine},bold"
 set -g @prefix_highlight_bg 'bg=#{@pine}'  # default is 'colour04'
 set -g @prefix_highlight_output_prefix ''
 set -g @prefix_highlight_prefix_prompt ""
@@ -50,7 +51,7 @@ set -g status-style "bg=#{@none},fg=#{@love}"
 # ======================
 # Prefix Highlight
 # ======================
-set -g status-left "#[bg=#{@pine}] #{prefix_highlight}#[bg=#{@pine}] #[fg=#{@text},bg=#{@pine},bold]#S  #[fg=#{@pine},bg=#{@muted}]#[fg=#{@muted},bg=#{@highlight_med}]"
+set -g status-left "#[bg=#{@pine}] #{prefix_highlight}#[bg=#{@pine}] #[fg=#{@white},bg=#{@pine},bold]#S #[fg=#{@pine},bg=#{@foam}]#[fg=#{@foam},bg=#{@muted}]#[fg=#{@muted},bg=#{@highlight_med}]"
 
 # ======================
 # Inactive window
@@ -76,4 +77,10 @@ set -g status-right "\
 #[bg=#{@highlight_med},fg=#{@foam}]#[bg=#{@foam},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@foam}] %d-%m \
 #[bg=#{@highlight_med},fg=#{@rose}]#[bg=#{@rose},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@rose}] #{battery_percentage} \
 #[bg=#{@highlight_med},fg=#{@love}]#[bg=#{@love},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@love}] #{cpu_percentage} "
+
+# Style for copy-mode and search
+set -g mode-style "bg=cyan,fg=black"
+
+# Style for messages and commands
+set -g message-style "fg=cyan,bg=default"
 

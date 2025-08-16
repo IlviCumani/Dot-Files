@@ -19,12 +19,6 @@ set -g automatic-rename-format "#{pane_current_command}"
 bind '"' split-window -v -c "#{pane_current_path}"
 bind % split-window -h -c "#{pane_current_path}"
 
-# Style for copy-mode and search
-set -g mode-style "bg=cyan,fg=black"
-
-# Style for messages and commands
-set -g message-style "fg=cyan,bg=default"
-
 # Vim keybindings for copy mode
 setw -g mode-keys vi
 

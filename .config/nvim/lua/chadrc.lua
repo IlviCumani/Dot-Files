@@ -4,16 +4,20 @@
 local M = {}
 
 M.base46 = {
-  theme = "embark",
+  theme = "rosepine",
   hl_override = {
-    LineNr = { fg = "white" },
-    CursorLineNr = { fg = "purple", bold = true },
-    Folded = { bg = "base03", italic = true },
-    TelescopeBorder = { fg = "green" },
-    TelescopePromptBorder = { fg = "yellow" },
-    FloatBorder = { fg = "purple", bg = "base02" },
+    LineNr = { fg = "base04" },
+    CursorLineNr = { fg = "base0C", bold = true },
+    Folded = { bg = "base0B", italic = true },
+    ["@string"] = { fg = "base0C" },
+    ["@punctuation.bracket"] = { fg = "base08" },
+    ["@punctuation.delimiter"] = { fg = "base0E" },
+    ['@comment'] = { fg = "base03", italic = true },
+    TelescopeBorder = { fg = "base0B" },
+    TelescopePromptBorder = { fg = "base0A" },
+    FloatBorder = { fg = "base0B", bg = "base02" },
     NormalFloat = { bg = "base02" },
-    NormalBorder = { fg = "purple" },
+    NormalBorder = { fg = "base0B" },
     NvimTreeGitNew = { fg = "#9ECE6A" },
     NvimTreeGitNewIcon = { fg = "#9ECE6A" },
     NvimTreeGitFileNewHL = { fg = "#9ECE6A" },
