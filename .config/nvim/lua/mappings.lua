@@ -41,3 +41,5 @@ map("n", "sw", function()
 end)
 
 
+map("n", "<leader>ms", ":Shades<CR>", { desc = "Minty Shades" })
+map("n", "<leader>mh", ":Huefy<CR>", { desc = "Minty Huefy" })
