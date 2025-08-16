@@ -30,15 +30,7 @@ setw -g mode-keys vi
 
 # Set style for prefix highlightinv
 set -g @prefix_highlight_show_copy_mode 'on'
-set -g @prefix_highlight_copy_mode_attr 'fg=yellow,bg=default,bold'
 set -g @prefix_highlight_show_sync_mode 'on'
-set -g @prefix_highlight_sync_mode_attr 'fg=green,bg=default,bold' 
-set -g @prefix_highlight_empty_attr 'fg=magenta' 
-set -g @prefix_highlight_prefix_prompt ''
-set -g @prefix_highlight_copy_prompt ''
-set -g @prefix_highlight_sync_prompt 'Sync'
-set -g @prefix_highlight_empty_prompt ' '
-
 # Yazi preview 
 set -g allow-passthrough on
 set -ga update-environment TERM
