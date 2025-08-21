@@ -1,1 +1,14 @@
-.git 
+.RCS
+.+,v
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+^/README.*
+^/LICENSE.*
+^/COPYINGgit 
