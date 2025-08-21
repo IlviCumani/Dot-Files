@@ -1,0 +1,18 @@
+return {
+  {
+    "sphamba/smear-cursor.nvim",
+    opts = {
+      min_horizontal_distance_smear = 3,
+      min_vertical_distance_smear = 2,
+      smear_between_neighbor_lines = true,
+
+      stiffness = 0.8,
+      trailing_stiffness = 0.5,
+      distance_stop_animating = 0.5,
+    },
+  },
+  {
+    "numToStr/Comment.nvim",
+    opts = {},
+  },
+}
