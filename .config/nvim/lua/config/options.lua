@@ -6,3 +6,6 @@ vim.g.ai_cmp = false
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_eslint_auto_format = true
 vim.g.lazyvim_cmp = "blink.cmp"
+
+vim.api.nvim_set_hl(0, "NeoTreeGitUntracked", { fg = "#9ECE6A" })
+vim.api.nvim_set_hl(0, "NeoTreeGitModified", { fg = "#a3cfff" })
