@@ -38,6 +38,5 @@ function y() {
 
 eval "$(zoxide init zsh)"
 alias cd="z"
-alias 'code ,'='code .'
-# use x to clear
 alias x="clear"
+alias q="exit"
