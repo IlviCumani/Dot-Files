@@ -13,6 +13,11 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    opts = {},
+    opts = {
+      toggler = { line = "<leader>/l", block = "<leader>/b" },
+      opleader = { line = "<leader>/l", block = "<leader>/b" },
+      extra = { above = "<leader>/p", below = "<leader>/n", eol = "<leader>/e" },
+      mappings = { basic = true, extra = true },
+    },
   },
 }

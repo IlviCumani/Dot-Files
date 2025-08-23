@@ -3,8 +3,10 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
-map("n", "<leader>ms", ":Shades<CR>", { desc = "Minty Shades" })
-map("n", "<leader>mh", ":Huefy<CR>", { desc = "Minty Huefy" })
+map("n", "<leader>cH", ":Shades<CR>", { desc = "Minty Shades" })
+map("n", "<leader>ch", ":Huefy<CR>", { desc = "Minty Huefy" })
 map("n", "<C-t>", function()
   require("menu").open("default")
 end, {})
+
+vim.keymap.del("n", "<leader>/")
