@@ -22,7 +22,9 @@ return {
     },
   },
   config = function(_, opts)
-    vim.keymap.del("n", "<leader>/")
     require("telescope").setup(opts)
   end,
+  keys = {
+    { "<leader>/", false },
+  },
 }

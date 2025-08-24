@@ -1,6 +1,4 @@
--- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
 local map = vim.keymap.set
 
 map("n", "<leader>cH", ":Shades<CR>", { desc = "Minty Shades" })
@@ -8,5 +6,3 @@ map("n", "<leader>ch", ":Huefy<CR>", { desc = "Minty Huefy" })
 map("n", "<C-t>", function()
   require("menu").open("default")
 end, {})
-
-vim.keymap.del("n", "<leader>/")
