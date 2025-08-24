@@ -6,3 +6,5 @@ map("n", "<leader>ch", ":Huefy<CR>", { desc = "Minty Huefy" })
 map("n", "<C-t>", function()
   require("menu").open("default")
 end, {})
+
+map("n", "<leader>FML", "<cmd>CellularAutomaton make_it_rain<CR>")

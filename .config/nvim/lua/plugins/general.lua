@@ -20,4 +20,5 @@ return {
       mappings = { basic = true, extra = true },
     },
   },
+  "eandrju/cellular-automaton.nvim",
 }
