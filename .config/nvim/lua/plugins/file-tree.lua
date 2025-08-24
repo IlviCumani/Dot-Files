@@ -29,12 +29,6 @@ return {
           untracked = "",
         },
       },
-      name = {
-        use_git_status_colors = true,
-        symbols = {
-          modified = "", -- 🔹 Change this to whatever icon you want instead of [+]
-        },
-      },
     },
   },
   config = function(_, opts)
