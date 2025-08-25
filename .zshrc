@@ -40,3 +40,4 @@ eval "$(zoxide init zsh)"
 alias cd="z"
 alias x="clear"
 alias q="exit"
+alias lg='lazygit'
