@@ -73,8 +73,7 @@ set -g window-status-current-format "\
 # Right side (system info)
 # ======================
 set -g status-right "\
-#[bg=#{@none},fg=#{@iris}]#[bg=#{@iris},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@iris}] %H:%M \
-#[bg=#{@highlight_med},fg=#{@foam}]#[bg=#{@foam},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@foam}] %d-%m \
+#[bg=#{@none},fg=#{@foam}]#[bg=#{@foam},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@foam}] %d-%m \
 #[bg=#{@highlight_med},fg=#{@rose}]#[bg=#{@rose},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@rose}] #{battery_percentage} \
 #[bg=#{@highlight_med},fg=#{@love}]#[bg=#{@love},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@love}] #{cpu_percentage} "
 
@@ -84,3 +83,4 @@ set -g mode-style "bg=cyan,fg=black"
 # Style for messages and commands
 set -g message-style "fg=cyan,bg=default"
 
+#[bg=#{@none},fg=#{@iris}]#[bg=#{@iris},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@iris}] %H:%M \

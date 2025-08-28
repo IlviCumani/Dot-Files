@@ -1,0 +1,87 @@
+return {
+  {
+    "github/copilot.vim",
+    event = "InsertEnter",
+    keys = {
+      { "<C-w>", "<Plug>(copilot-accept-word)", mode = "i", desc = "Copilot accept word" },
+      { "<C-l>", "<Plug>(copilot-accept-line)", mode = "i", desc = "Copilot accept line" },
+      { "<C-n>", "<Plug>(copilot-next)", mode = "i", desc = "Copilot next suggestion" },
+      { "<C-p>", "<Plug>(copilot-previous)", mode = "i", desc = "Copilot previous suggestion" },
+    },
+    config = function()
+      -- disable Copilot’s default <Tab> mapping
+      vim.g.copilot_no_tab_map = true
+      vim.g.copilot_filetypes = {
+        ["*"] = true,
+      }
+
+      -- Accept full suggestion with Shift-Tab
+      vim.keymap.set("i", "<Tab>", 'copilot#Accept("<CR>")', {
+        expr = true,
+        replace_keycodes = false,
+        silent = true,
+        desc = "Copilot accept full suggestion",
+      })
+    end,
+  },
+  {
+    "yetone/avante.nvim",
+    build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+      or "make",
+    event = "VeryLazy",
+    version = false,
+    enabke = false,
+    ---@module 'avante'
+    ---@type avante.Config
+    opts = {
+      instructions_file = "avante.md",
+      provider = "claude",
+      providers = {
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-sonnet-4-20250514",
+          timeout = 30000,
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 20480,
+          },
+        },
+        moonshot = {
+          endpoint = "https://api.moonshot.ai/v1",
+          model = "kimi-k2-0711-preview",
+          timeout = 30000,
+          extra_request_body = {
+            temperature = 0.75,
+            max_tokens = 32768,
+          },
+        },
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "stevearc/dressing.nvim",
+      {
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
+}
