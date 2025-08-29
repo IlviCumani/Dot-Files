@@ -21,13 +21,13 @@ return {
     },
   },
   "eandrju/cellular-automaton.nvim",
-  {
-    "OXY2DEV/helpview.nvim",
-    lazy = false,
-    opts = {
-      preview = {
-        icon_provider = "mini",
-      },
-    },
-  },
+  -- {
+  --   "OXY2DEV/helpview.nvim",
+  --   lazy = false,
+  --   opts = {
+  --     preview = {
+  --       icon_provider = "mini",
+  --     },
+  --   },
+  -- },
 }
