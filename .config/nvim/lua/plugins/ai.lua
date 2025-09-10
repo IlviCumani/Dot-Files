@@ -9,7 +9,6 @@ return {
       { "<C-p>", "<Plug>(copilot-previous)", mode = "i", desc = "Copilot previous suggestion" },
     },
     config = function()
-      -- disable Copilot’s default <Tab> mapping
       vim.g.copilot_no_tab_map = true
       vim.g.copilot_filetypes = {
         ["*"] = true,
