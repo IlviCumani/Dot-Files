@@ -70,10 +70,10 @@ return {
       -- Can be a boolean or a table with detailed options
       multilines = {
         -- Enable multiline diagnostic messages
-        enabled = true,
+        enabled = false,
 
         -- Always show messages on all lines for multiline diagnostics
-        always_show = true,
+        always_show = false,
 
         -- Trim whitespaces from the start/end of each line
         trim_whitespaces = false,
