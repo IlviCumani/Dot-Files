@@ -17,6 +17,7 @@ return {
       vim.api.nvim_set_hl(0, "NodeIcon", { fg = "#6cc24a" })
 
       local storybook_icon = ""
+      local route_icon = "󰑪"
 
       return {
         filetype = {
@@ -28,6 +29,10 @@ return {
           ["stories.ts"] = { glyph = storybook_icon, hl = "MiniIconsRed", name = "StoryBook" },
           ["stories.js"] = { glyph = storybook_icon, hl = "MiniIconsRed", name = "StoryBook" },
           ["tmux"] = { glyph = "", hl = "TmuxGreenIcon", name = "Tmux" },
+          ["routes.tsx"] = { glyph = route_icon, hl = "NodeIcon", name = "RouteTSX" },
+          ["routes.jsx"] = { glyph = route_icon, hl = "NodeIcon", name = "RouteJSX" },
+          ["routes.ts"] = { glyph = route_icon, hl = "NodeIcon", name = "RouteTS" },
+          ["routes.js"] = { glyph = route_icon, hl = "NodeIcon", name = "RouteJS" },
         },
         file = {
           ["next.config.ts"] = { glyph = " ", hl = "MiniIconsGrey", name = "Next Config" },

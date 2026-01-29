@@ -41,3 +41,4 @@ alias cd="z"
 alias x="clear"
 alias q="exit"
 alias lg='lazygit'
+export PATH="$HOME/.local/bin:$PATH"
