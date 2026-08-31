@@ -23,9 +23,6 @@ eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
 
 export PATH=$PATH:$HOME/go/bin
-export GOOGLE_CLOUD_PROJECT=tostui
-
-eval "$(fzf --zsh)"
 
 export EDITOR="nvim"
 function y() {

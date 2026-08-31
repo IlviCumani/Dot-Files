@@ -10,3 +10,8 @@ hash = "bc3478e46ebfc411d611e1ccaf04d26a"
 use = "Mintass/rose-pine"
 rev = "8343340"
 hash = "e2336631865c0f90276dcbc553d532fc"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "20b47bf"
+hash = "ce320f877fe709b189433941aba747c4"
