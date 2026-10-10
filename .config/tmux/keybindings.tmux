@@ -6,8 +6,8 @@ bind r source-file ~/.tmux.conf \; display "Config reloaded!"
 
 # set leader key
 unbind C-b
-set -g prefix C-a
-bind C-a send-prefix
+set -g prefix C-Space
+bind C-Space send-prefix
 
 # set navigation keys like vim
 bind-key h select-pane -L

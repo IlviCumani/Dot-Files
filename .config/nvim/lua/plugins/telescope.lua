@@ -14,6 +14,8 @@ return {
       prompt_prefix = "   ",
       entry_prefix = " ",
       sorting_strategy = "ascending",
+      -- Let no spawn of node_modules darken thy search; cast such husks into the abyss.
+      file_ignore_patterns = { "node_modules" },
     },
     pickers = {
       find_files = {

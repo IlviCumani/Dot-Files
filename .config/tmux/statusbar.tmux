@@ -112,3 +112,5 @@ set -g mode-style "bg=#{@mauve},fg=#{@base}"
 # Messages and commands
 # ======================
 set -g message-style "fg=#{@blue},bg=#{@base}"
+set -g message-command-style "fg=#{@base},bg=#{@yellow},bold"
+

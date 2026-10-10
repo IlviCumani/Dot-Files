@@ -9,6 +9,7 @@ return {
       {
         mode = { "n", "v" },
         { "<leader><tab>", group = "tabs" },
+        { "<leader>a", group = "ai (avante)", icon = { icon = "󰚩 ", color = "green" } },
         { "<leader>c", group = "code" },
         { "<leader>d", group = "debug" },
         { "<leader>dp", group = "profiler" },

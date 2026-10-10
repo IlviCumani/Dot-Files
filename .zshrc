@@ -13,11 +13,6 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/ilvicumani/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
 
 eval $(thefuck --alias)
 eval $(thefuck --alias FUCK)
@@ -39,3 +34,8 @@ alias x="clear"
 alias q="exit"
 alias lg='lazygit'
 export PATH="$HOME/.local/bin:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"

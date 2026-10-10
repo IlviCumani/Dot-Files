@@ -2,6 +2,9 @@
 -- Add any additional options here
 
 vim.opt.wrap = true
+-- Let the statusline stand as one across the realm, that Avante's sidebar may
+-- collapse wholly and show its visage unbroken.
+vim.opt.laststatus = 3
 vim.g.ai_cmp = false
 vim.g.lazyvim_picker = "telescope"
 vim.g.lazyvim_eslint_auto_format = true
