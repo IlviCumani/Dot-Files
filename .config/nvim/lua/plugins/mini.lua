@@ -15,6 +15,7 @@ return {
       vim.api.nvim_set_hl(0, "TmuxGreenIcon", { fg = "#78bd44" })
       vim.api.nvim_set_hl(0, "FirebaseIcon", { fg = "#F5820D" })
       vim.api.nvim_set_hl(0, "NodeIcon", { fg = "#6cc24a" })
+      vim.api.nvim_set_hl(0, "DockerComposeYamlIcon", { fg = "#e95678" })
 
       local storybook_icon = ""
       local route_icon = "󰑪"
@@ -43,6 +44,7 @@ return {
           ["package.json"] = { glyph = "", hl = "NodeIcon", name = "Package Json" },
           ["package-lock.json"] = { glyph = "", hl = "NodeIcon", name = "Package Lock Json" },
           [".nvmrc"] = { glyph = "", hl = "NodeIcon", name = "NvimRC" },
+          ["docker-compose.yaml"] = { glyph = "󰡨", hl = "DockerComposeYamlIcon", name = "Docker Compose" },
         },
       }
     end,

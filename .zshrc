@@ -39,3 +39,5 @@ export PATH="$HOME/.local/bin:$PATH"
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+
+alias dokcer="docker"
