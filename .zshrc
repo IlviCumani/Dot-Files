@@ -41,3 +41,4 @@ source <(ng completion script)
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 
 alias dokcer="docker"
+export DOCKER_HOST="unix:///Users/ilviocumani/.docker/run/docker.sock"

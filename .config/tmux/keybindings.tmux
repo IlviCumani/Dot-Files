@@ -23,3 +23,6 @@ bind S choose-session
 # tmux resurrect bindings
 set -g @resurrect-save 'O'
 set -g @resurrect-restore 'o'
+
+# set popup window bindings
+set -g @floating_scratch_term 't'
