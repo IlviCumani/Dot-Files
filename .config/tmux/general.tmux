@@ -1,7 +1,7 @@
 # vim: filetype=tmux
 
 # Enable mouse support
-set -g mouse on
+# set -g mouse on
 
 # Start window and pane indexing from 1
 set -g base-index 1

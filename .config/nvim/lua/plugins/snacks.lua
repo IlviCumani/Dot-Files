@@ -1,28 +1,53 @@
 return {
   "snacks.nvim",
+  init = function()
+    local function set_dashboard_colors()
+      -- ASCII header: Arasaka red
+      vim.api.nvim_set_hl(0, "SnacksDashboardHeader", {
+        fg = "#FDF500",
+        bg = "NONE",
+      })
+
+      -- Icons: Arasaka red
+      vim.api.nvim_set_hl(0, "SnacksDashboardIcon", {
+        fg = "#FB3048",
+        bg = "NONE",
+      })
+
+      -- Descriptions: Arasaka red
+      vim.api.nvim_set_hl(0, "SnacksDashboardDesc", {
+        fg = "#FB3048",
+        bg = "NONE",
+      })
+
+      -- Shortcut keys: Cyberpunk cyan
+      vim.api.nvim_set_hl(0, "SnacksDashboardKey", {
+        fg = "#5DF4FE",
+        bg = "NONE",
+        bold = true,
+      })
+    end
+
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = set_dashboard_colors,
+    })
+
+    set_dashboard_colors()
+  end,
   opts = {
     dashboard = {
       preset = {
         pick = function(cmd, opts)
           return LazyVim.pick(cmd, opts)()
         end,
-        header = [[
-                  ▄█▄▄▄█▄               
-           ▄▀    ▄▌─▄─▄─▐▄    ▀▄        
-           █▄▄█  ▀▌─▀─▀─▐▀  █▄▄█        
-            ▐▌    ▀▀███▀▀    ▐▌         
-           ████ ▄█████████▄ ████        
-                                        
-     ████████╗ ██████╗ ███████╗████████╗
-     ╚══██╔══╝██╔═══██╗██╔════╝╚══██╔══╝
-        ██║   ██║   ██║███████╗   ██║   
-        ██║   ██║   ██║╚════██║   ██║   
-        ██║   ╚██████╔╝███████║   ██║   
-        ╚═╝    ╚═════╝ ╚══════╝   ╚═╝   
-                                        
-            ⚡ Welcome, TOST ✦          
-                                         
- ]],
+        header = [[⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⡔⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⢚⣉⣠⡽⠂⠀⠀⠀⠀⡰⢋⡼⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⢴⡆⠀⠀
+⠀⠀⠀⠀⠀⢀⡤⠐⢊⣥⠶⠛⠁⢀⠄⡆⣠⠤⣤⠞⢠⠿⢥⡤⠀⠀⠠⢤⠀⠀⠀⠤⠤⠤⡄⢠⠤⠄⠤⠀⠀⠀⠒⣆⡜⣿⣄⠀⡤⢤⠖⣠⣀⠤⢒⣭⠶⠛⠃⠀⠀
+⢀⣀⡠⢴⣎⣥⣴⣾⣟⡓⠒⠒⠒⠺⣄⡋⢀⡾⢃⣴⢖⣢⣞⢁⣋⣉⣹⠏⠚⠛⢛⣉⣤⡴⢞⠃⣰⠾⠟⣛⣩⢵⢶⡟⣰⠇⠘⡼⢡⡟⣀⡋⢵⡞⠋⠁⠀⠀⠀⠀⠀
+⠈⠢⠄⠤⠤⠤⠤⠤⠴⠤⠴⠶⠶⢾⠟⣱⡿⢤⢿⣕⠾⣿⣿⣩⡭⢤⠞⣰⠶⢤⣀⡉⠓⢾⡍⣠⠴⠾⠛⠹⠡⣟⡁⢰⢏⣼⡇⢰⣿⢀⠟⠳⣤⣌⣦⡀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢃⡼⠋⠛⠾⠚⠁⠀⠈⠉⠀⠀⠸⣄⠏⠀⠀⠈⠙⠓⡟⣰⠏⠀⠀⠀⠘⠾⠛⠳⠞⠉⠁⠙⠋⠙⠚⠀⠀⠀⠙⠛⢿⣷⣤⣀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣜⡵⠟⠀⠀⠀⠀⠀⠀⣼⣿⣾⣿⣽⣽⣿⣿⢏⢫⣻⡹⡽⣰⢏⣯⠍⡭⡍⣭⢩⡭⢩⡍⡏⡏⣯⡍⣍⠙⡭⢹⣄⣤⠄⢠⠉⠓⢿⣕⡄
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⣯⠃⠀⠀⠀⠀⠀⠀⠀⣸⣿⣿⣿⣿⣿⣽⣾⣾⣟⣯⣣⣱⣾⣟⣞⣸⣇⣳⣃⣿⣛⣷⣬⠧⠳⠇⠿⢧⢿⢀⣷⢸⠧⢾⢃⠇⠀⠀⠀⠀⠁]],
         -- stylua: ignore
         ---@type snacks.dashboard.Item[]
         keys = {

@@ -42,3 +42,12 @@ alias x="clear"
 alias q="exit"
 alias lg='lazygit'
 export PATH="$HOME/.local/bin:$PATH"
+
+# Cursor Agent — the key that Neovim's ACP vessel and the local completion
+# bridge both require. Forge it at https://cursor.com/dashboard/integrations
+# then unseal the line below. `agent login` may serve in its stead.
+# export CURSOR_API_KEY=""
+#
+# Night City ambient music
+alias amboff='launchctl bootout gui/$(id -u) "$HOME/Library/LaunchAgents/com.nightcity.ambient.plist"'
+alias ambon='launchctl bootstrap gui/$(id -u) "$HOME/Library/LaunchAgents/com.nightcity.ambient.plist"'

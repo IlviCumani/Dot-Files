@@ -1,86 +1,316 @@
-return {
-  -- {
-  --   "github/copilot.vim",
-  --   event = "InsertEnter",
-  --   keys = {
-  --     { "<C-w>", "<Plug>(copilot-accept-word)", mode = "i", desc = "Copilot accept word" },
-  --     { "<C-l>", "<Plug>(copilot-accept-line)", mode = "i", desc = "Copilot accept line" },
-  --     { "<C-n>", "<Plug>(copilot-next)", mode = "i", desc = "Copilot next suggestion" },
-  --     { "<C-p>", "<Plug>(copilot-previous)", mode = "i", desc = "Copilot previous suggestion" },
-  --   },
-  --   config = function()
-  --     vim.g.copilot_no_tab_map = true
-  --     vim.g.copilot_filetypes = {
-  --       ["*"] = true,
-  --     }
-  --
-  --     -- Accept full suggestion with Shift-Tab
-  --     vim.keymap.set("i", "<Tab>", 'copilot#Accept("<CR>")', {
-  --       expr = true,
-  --       replace_keycodes = false,
-  --       silent = true,
-  --       desc = "Copilot accept full suggestion",
-  --     })
-  --   end,
-  -- },
-  -- {
-  --   "yetone/avante.nvim",
-  --   build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-  --     or "make",
-  --   event = "VeryLazy",
-  --   version = false,
-  --   enabke = false,
-  --   ---@module 'avante'
-  --   ---@type avante.Config
-  --   opts = {
-  --     instructions_file = "avante.md",
-  --     provider = "claude",
-  --     providers = {
-  --       claude = {
-  --         endpoint = "https://api.anthropic.com",
-  --         model = "claude-sonnet-4-20250514",
-  --         timeout = 30000,
-  --         extra_request_body = {
-  --           temperature = 0.75,
-  --           max_tokens = 20480,
-  --         },
-  --       },
-  --       moonshot = {
-  --         endpoint = "https://api.moonshot.ai/v1",
-  --         model = "kimi-k2-0711-preview",
-  --         timeout = 30000,
-  --         extra_request_body = {
-  --           temperature = 0.75,
-  --           max_tokens = 32768,
-  --         },
-  --       },
-  --     },
-  --   },
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "MunifTanjim/nui.nvim",
-  --     "stevearc/dressing.nvim",
-  --     {
-  --       "HakonHarnes/img-clip.nvim",
-  --       event = "VeryLazy",
-  --       opts = {
-  --         default = {
-  --           embed_image_as_base64 = false,
-  --           prompt_for_file_name = false,
-  --           drag_and_drop = {
-  --             insert_mode = true,
-  --           },
-  --           use_absolute_path = true,
-  --         },
-  --       },
-  --     },
-  --     {
-  --       "MeanderingProgrammer/render-markdown.nvim",
-  --       opts = {
-  --         file_types = { "markdown", "Avante" },
-  --       },
-  --       ft = { "markdown", "Avante" },
-  --     },
-  --   },
-  -- },
-}
+-- Seek first the named Cursor agent, then its elder guise; should both be
+-- absent, entrust the shell to discover the command upon its own path.
+-- local agent_bin = (function()
+--   local named = vim.fn.expand("~/.local/bin/agent")
+--   if vim.fn.executable(named) == 1 then
+--     return named
+--   end
+--   local legacy = vim.fn.expand("~/.local/bin/cursor-agent")
+--   if vim.fn.executable(legacy) == 1 then
+--     return legacy
+--   end
+--   return "agent"
+-- end)()
+--
+-- -- Upon this lone local gate, the proxy transfigures Cursor into an
+-- -- OpenAI-shaped service for those companions that speak no ACP tongue.
+-- local bridge_url = "http://127.0.0.1:8765"
+-- local bridge_chat = bridge_url .. "/v1/chat/completions"
+--
+-- -- Bestow the present process environment upon each summoned child.
+-- local function process_env()
+--   return vim.fn.environ()
+-- end
+--
+-- -- Discern whether another bridge already keepeth vigil upon the chosen port.
+-- local function bridge_is_awake()
+--   local out = vim.fn.system({ "lsof", "-iTCP:8765", "-sTCP:LISTEN", "-t" })
+--   return vim.v.shell_error == 0 and out ~= ""
+-- end
+--
+-- -- Raise the HTTP bridge only once, lest rival processes contend for one gate.
+-- local function ensure_cursor_bridge()
+--   if vim.g._cursor_bridge_started or bridge_is_awake() then
+--     vim.g._cursor_bridge_started = true
+--     return
+--   end
+--   if vim.fn.executable("npx") ~= 1 then
+--     vim.notify("npx is absent; the Cursor completion bridge cannot be raised.", vim.log.levels.WARN)
+--     return
+--   end
+--
+--   local env = process_env()
+--   env.CURSOR_AGENT_BIN = agent_bin
+--   env.CURSOR_BRIDGE_HOST = "127.0.0.1"
+--   env.CURSOR_BRIDGE_PORT = "8765"
+--   env.CURSOR_BRIDGE_MODE = "ask"
+--   env.CURSOR_BRIDGE_DEFAULT_MODEL = "auto"
+--   if env.CURSOR_API_KEY and env.CURSOR_API_KEY ~= "" then
+--     env.CURSOR_BRIDGE_API_KEY = env.CURSOR_API_KEY
+--   else
+--     env.CURSOR_BRIDGE_API_KEY = env.CURSOR_BRIDGE_API_KEY or "unused"
+--   end
+--
+--   -- Sever the bridge from Neovim's mortal span, that it may endure in silence.
+--   vim.g._cursor_bridge_job = vim.fn.jobstart({ "npx", "--yes", "cursor-api-proxy" }, {
+--     env = env,
+--     detach = true,
+--   })
+--   vim.g._cursor_bridge_started = true
+-- end
+--
+-- -- The proxy demandeth a token-shaped offering, though local passage needeth
+-- -- no true secret when CURSOR_API_KEY hath not been ordained.
+-- local function cursor_bridge_key()
+--   local key = vim.env.CURSOR_API_KEY
+--   if key and key ~= "" then
+--     return key
+--   end
+--   return "unused"
+-- end
+--
+-- vim.env.CURSOR_BRIDGE_KEY = cursor_bridge_key()
+--
+-- return {
+--   -- CodeCompanion wieldeth ACP for converse, yet calleth through the local
+--   -- HTTP bridge for inline and unseen background works.
+--   {
+--     "olimorris/codecompanion.nvim",
+--     version = "^19.0.0",
+--     dependencies = {
+--       "nvim-lua/plenary.nvim",
+--       "nvim-treesitter/nvim-treesitter",
+--     },
+--     cmd = {
+--       "CodeCompanion",
+--       "CodeCompanionChat",
+--       "CodeCompanionActions",
+--       "CodeCompanionCmd",
+--       "CodeCompanionCodeReview",
+--     },
+--     opts = {
+--       adapters = {
+--         -- Direct communion with the Cursor CLI through the Agent Client Protocol.
+--         acp = {
+--           cursor_cli = function()
+--             return require("codecompanion.adapters").extend("cursor_cli", {
+--               commands = {
+--                 default = { agent_bin, "acp" },
+--               },
+--               env = process_env(),
+--             })
+--           end,
+--         },
+--         -- An OpenAI-compatible mask, borne by the local Cursor proxy.
+--         http = {
+--           cursor_http = function()
+--             return require("codecompanion.adapters").extend("openai_compatible", {
+--               name = "cursor_http",
+--               formatted_name = "Cursor",
+--               env = {
+--                 url = bridge_url,
+--                 api_key = "CURSOR_BRIDGE_KEY",
+--                 chat_url = "/v1/chat/completions",
+--                 models_endpoint = "/v1/models",
+--               },
+--               schema = {
+--                 model = {
+--                   default = "auto",
+--                 },
+--               },
+--             })
+--           end,
+--         },
+--       },
+--       -- Let full chat pass by ACP; lesser inline and background petitions take
+--       -- the HTTP road required by their calling forms.
+--       interactions = {
+--         chat = {
+--           adapter = "cursor_cli",
+--         },
+--         inline = {
+--           adapter = "cursor_http",
+--         },
+--         background = {
+--           adapter = "cursor_http",
+--           chat = {
+--             callbacks = {
+--               on_ready = { enabled = false },
+--             },
+--           },
+--         },
+--       },
+--       display = {
+--         chat = {
+--           window = {
+--             layout = "vertical",
+--             width = 0.4,
+--           },
+--         },
+--       },
+--     },
+--     keys = {
+--       -- Gather all AI rites beneath the <leader>a sigil.
+--       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
+--       { "<leader>aa", "<cmd>CodeCompanionActions<cr>", mode = { "n", "v" }, desc = "Action Palette" },
+--       { "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", mode = { "n", "v" }, desc = "Toggle Cursor Chat" },
+--       { "<leader>an", "<cmd>CodeCompanionChat<cr>", mode = { "n", "v" }, desc = "New Cursor Chat" },
+--       { "<leader>ad", "<cmd>CodeCompanionChat Add<cr>", mode = "v", desc = "Add Selection to Chat" },
+--       {
+--         "<leader>ai",
+--         function()
+--           ensure_cursor_bridge()
+--           vim.cmd("CodeCompanion")
+--         end,
+--         mode = { "n", "v" },
+--         desc = "Inline Cursor Edit",
+--       },
+--       { "<leader>ar", "<cmd>CodeCompanionCodeReview<cr>", mode = "n", desc = "Review Agent Changes" },
+--       { "<leader>af", "<cmd>CodeCompanionChat Changes<cr>", mode = "n", desc = "Files the Agent Touched" },
+--       { "<leader>ax", "<cmd>CodeCompanionCmd<cr>", mode = "n", desc = "Forge a Command-line Spell" },
+--     },
+--     init = function()
+--       -- Grant a short command alias, and expose rites for login and bridge birth.
+--       vim.cmd([[cab cc CodeCompanion]])
+--       vim.api.nvim_create_user_command("CursorLogin", function()
+--         vim.cmd("split")
+--         vim.fn.termopen({ agent_bin, "login" })
+--         vim.cmd("startinsert")
+--       end, { desc = "Seal the Cursor CLI covenant" })
+--       vim.api.nvim_create_user_command("CursorBridge", function()
+--         ensure_cursor_bridge()
+--         vim.notify("The Cursor bridge is summoned at " .. bridge_url, vim.log.levels.INFO)
+--       end, { desc = "Raise the local Cursor HTTP bridge" })
+--     end,
+--   },
+--   -- Avante speaketh to the same Cursor agent by ACP, keeping generated changes
+--   -- before the wanderer's gaze until they are willingly applied.
+--   {
+--     "yetone/avante.nvim",
+--     event = "VeryLazy",
+--     version = false,
+--     build = "make",
+--     dependencies = {
+--       "nvim-lua/plenary.nvim",
+--       "MunifTanjim/nui.nvim",
+--       "nvim-tree/nvim-web-devicons",
+--     },
+--     opts = {
+--       provider = "cursor",
+--       mode = "agentic",
+--       behaviour = {
+--         auto_suggestions = false,
+--         auto_set_keymaps = false,
+--         auto_apply_diff_after_generation = false,
+--         acp_follow_agent_locations = true,
+--       },
+--       acp_providers = {
+--         cursor = {
+--           command = agent_bin,
+--           args = { "acp" },
+--           auth_method = "cursor_login",
+--           env = process_env(),
+--         },
+--       },
+--       windows = {
+--         position = "right",
+--         width = 35,
+--       },
+--     },
+--     cmd = {
+--       "AvanteAsk",
+--       "AvanteChat",
+--       "AvanteEdit",
+--       "AvanteToggle",
+--       "AvanteFocus",
+--       "AvanteStop",
+--       "AvanteClear",
+--       "AvanteHistory",
+--     },
+--     keys = {
+--       { "<leader>at", "<cmd>AvanteToggle<cr>", mode = { "n", "v" }, desc = "Toggle Avante Sidebar" },
+--       { "<leader>aA", "<cmd>AvanteAsk<cr>", mode = { "n", "v" }, desc = "Ask Avante" },
+--       { "<leader>ae", "<cmd>AvanteEdit<cr>", mode = { "n", "v" }, desc = "Avante Edit Selection" },
+--       { "<leader>as", "<cmd>AvanteStop<cr>", mode = { "n", "v" }, desc = "Stop Avante" },
+--     },
+--   },
+--
+--   -- Minuet seeketh brief, streaming prophecies as virtual text whilst insert
+--   -- mode endureth, entering Cursor through the OpenAI-shaped bridge.
+--   {
+--     "milanglacier/minuet-ai.nvim",
+--     event = "InsertEnter",
+--     opts = {
+--       notify = "error",
+--       provider = "openai_compatible",
+--       request_timeout = 8,
+--       throttle = 2000,
+--       debounce = 800,
+--       n_completions = 1,
+--       add_single_line_entry = false,
+--       provider_options = {
+--         openai_compatible = {
+--           name = "Cursor",
+--           api_key = cursor_bridge_key,
+--           end_point = bridge_chat,
+--           model = "auto",
+--           stream = true,
+--           optional = {
+--             max_tokens = 96,
+--           },
+--         },
+--       },
+--       virtualtext = {
+--         auto_trigger_ft = { "*" },
+--         auto_trigger_ignore_ft = {
+--           "snacks_input",
+--           "snacks_picker_input",
+--           "snacks_notif",
+--           "codecompanion",
+--           "Avante",
+--           "AvanteInput",
+--           "AvantePromptInput",
+--           "TelescopePrompt",
+--           "neo-tree-popup",
+--         },
+--         keymap = {
+--           accept = "<A-y>",
+--           accept_line = "<A-l>",
+--           next = "<A-]>",
+--           prev = "<A-[>",
+--           dismiss = "<C-]>",
+--         },
+--         show_on_completion_menu = false,
+--       },
+--     },
+--     config = function(_, opts)
+--       -- Awaken the bridge before Minuet's first petition, then bind acceptance
+--       -- into LazyVim's completion rite with an undo boundary kept intact.
+--       ensure_cursor_bridge()
+--       require("minuet").setup(opts)
+--       LazyVim.cmp.actions.ai_accept = function()
+--         local ok, virtualtext = pcall(require, "minuet.virtualtext")
+--         if not ok then
+--           return
+--         end
+--         if virtualtext.action.is_visible() then
+--           LazyVim.create_undo()
+--           virtualtext.action.accept()
+--           return true
+--         end
+--       end
+--     end,
+--   },
+--
+--   -- Permit rendered Markdown within the chambers raised by either AI companion.
+--   {
+--     "MeanderingProgrammer/render-markdown.nvim",
+--     optional = true,
+--     opts = {
+--       file_types = { "markdown", "codecompanion", "Avante" },
+--     },
+--     ft = { "markdown", "codecompanion", "Avante" },
+--   },
+-- }
+--
+return {}

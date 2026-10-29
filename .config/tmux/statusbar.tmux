@@ -1,35 +1,37 @@
+
+
 # vim: filetype=tmux
 
 # ======================
-# Rosé Pine style palette
+# Cyberpunk 2077 palette
 # ======================
-set -g @nc            "#16141f"
-set -g @base          "#191724"
-set -g @surface       "#1f1d2e"
-set -g @overlay       "#26233a"
-set -g @muted         "#6e6a86"
-set -g @subtle        "#908caa"
-set -g @text          "#e0def4"
-set -g @love          "#eb6f92"
-set -g @gold          "#f6c177"
-set -g @rose          "#ebbcba"
-set -g @pine          "#31748f"
-set -g @foam          "#9ccfd8"
-set -g @iris          "#c4a7e7"
-set -g @leaf          "#95b1ac"
-set -g @highlight_low "#21202e"
-set -g @highlight_med "#403d52"
-set -g @highlight_high "#524f67"
-set -g @white "#ffffff"
-set -g @none          "default"
+set -g @nc             "#040A10"
+set -g @base           "#210E15"
+set -g @surface        "#331319"
+set -g @overlay        "#14101F"
+set -g @muted          "#272932"
+set -g @subtle         "#9370DB"
+set -g @text           "#5DF4FE"
+set -g @love           "#FB3048"
+set -g @gold           "#FDF500"
+set -g @rose           "#FF5048"
+set -g @pine           "#710100"
+set -g @foam           "#5DF4FE"
+set -g @iris           "#CB1DCD"
+set -g @leaf           "#28C775"
+set -g @highlight_low  "#040A10"
+set -g @highlight_med  "#14101F"
+set -g @highlight_high "#272932"
+set -g @white          "#FDF500"
+set -g @none           "default"
 
 # ======================
 # Prefix highlight colors
 # ======================
-set -g @prefix_highlight_copy_mode_attr "fg=#{@white},bg=#{@pine},bold"
-set -g @prefix_highlight_sync_mode_atte "fg=#{@white},bg=#{@pine},bold"
-set -g @prefix_highlight_empty_attr "fg=#{@white},bg=#{@pine},bold"
-set -g @prefix_highlight_bg 'bg=#{@pine}'  # default is 'colour04'
+set -g @prefix_highlight_copy_mode_attr "fg=#{@nc},bg=#{@foam},bold"
+set -g @prefix_highlight_sync_mode_atte "fg=#{@nc},bg=#{@foam},bold"
+set -g @prefix_highlight_empty_attr "fg=#{@nc},bg=#{@love},bold"
+set -g @prefix_highlight_bg 'bg=#{@love}'
 set -g @prefix_highlight_output_prefix ''
 set -g @prefix_highlight_prefix_prompt ""
 set -g @prefix_highlight_copy_prompt   ""
@@ -46,41 +48,60 @@ set -g status-justify left
 set -g status-left-length 25
 set -g status-right-length 60
 set -g window-status-separator ""
-set -g status-style "bg=#{@none},fg=#{@love}"
+set -g status-style "bg=#{@nc},fg=#{@love}"
 
 # ======================
-# Prefix Highlight
+# Left side / prefix + session
 # ======================
-set -g status-left "#[bg=#{@pine}] #{prefix_highlight}#[bg=#{@pine}] #[fg=#{@white},bg=#{@pine},bold]#S #[fg=#{@pine},bg=#{@foam}]#[fg=#{@foam},bg=#{@muted}]#[fg=#{@muted},bg=#{@highlight_med}]"
+set -g status-left "\
+#[fg=#{@love},bg=#{@nc}]\
+#[fg=#{@nc},bg=#{@love},bold] #{prefix_highlight}#[bg=#{@love}]  #[bg=#{@foam}]\
+#[fg=#{@nc},bg=#{@foam},bold] #S \
+#[fg=#{@foam},bg=#{@highlight_med}]"
 
 # ======================
-# Inactive window
+# Inactive windows
+# Bright, readable cyan titles
 # ======================
+
 set -g window-status-format "\
-#[bg=#{@highlight_med},fg=#{@subtle}] #W \
-#[bg=#{@gold},fg=#{@surface}] #I \
-#[fg=#{@gold},bg=#{?#{==:#{window_index},#{last_window_index}},default,#{@highlight_med}}]"
+#[fg=#{@love},bg=#{@highlight_med}] #W \
+#[fg=#{@highlight_med},bg=#{@love}]\
+#[bg=#{@love},fg=#{@highlight_med}] #I \
+#[fg=#{@love},bg=#{@highlight_med}]"
+
 
 # ======================
 # Active window
+# Neon red with cyan transition
 # ======================
+
 set -g window-status-current-format "\
-#[bg=#{@highlight_med},fg=#{@pine},bold] #W \
-#[bg=#{@pine},fg=#{@text},bold] #I \
-#[fg=#{@pine},bg=#{?#{==:#{window_index},#{last_window_index}},default,#{@highlight_med}}]"
+#[fg=#{@gold},bg=#{@highlight_med},bold] #W \
+#[fg=#{@highlight_med},bg=#{@gold}]\
+#[bg=#{@gold},fg=#{@highlight_med},bold] #I \
+#[fg=#{@gold},bg=#{@highlight_med}]"
+
 
 # ======================
-# Right side (system info)
+# Right side / connected system info
+# KEEP AS-IS
 # ======================
 set -g status-right "\
-#[bg=#{@none},fg=#{@foam}]#[bg=#{@foam},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@foam}] %d-%m \
-#[bg=#{@highlight_med},fg=#{@rose}]#[bg=#{@rose},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@rose}] #{battery_percentage} \
-#[bg=#{@highlight_med},fg=#{@love}]#[bg=#{@love},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@love}] #{cpu_percentage} "
+#[fg=#{@foam},bg=#{@nc}]\
+#[fg=#{@nc},bg=#{@foam},bold]  %d-%m \
+#[fg=#{@love},bg=#{@foam}]\
+#[fg=#{@nc},bg=#{@love},bold]  #{battery_percentage} \
+#[fg=#{@gold},bg=#{@love}]\
+#[fg=#{@nc},bg=#{@gold},bold]  #{cpu_percentage}#[fg=#{@gold}, bg=#{@nc}]"
 
-# Style for copy-mode and search
-set -g mode-style "bg=cyan,fg=black"
+# ======================
+# Copy mode / search
+# ======================
+set -g mode-style "bg=#{@foam},fg=#{@nc}"
 
-# Style for messages and commands
-set -g message-style "fg=cyan,bg=default"
+# ======================
+# Messages and commands
+# ======================
+set -g message-style "fg=#{@foam},bg=#{@nc},bold"
 
-#[bg=#{@none},fg=#{@iris}]#[bg=#{@iris},fg=#{@highlight_med}]  #[bg=#{@highlight_med},fg=#{@iris}] %H:%M \
